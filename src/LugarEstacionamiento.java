@@ -19,8 +19,19 @@ public class LugarEstacionamiento {
         return numero;
     }
     
+    public Vehiculos getVehiculos(){
+        return vehiculos;
+    }
+    
+    public Vehiculos retiraVehiculo(){
+        Vehiculos vehiculoRetirado = this.vehiculos;
+        this.vehiculos.RegistrarSalida();
+        this.vehiculos = null;
+        return vehiculoRetirado;
+    }
+    
     @Override
     public String toString(){
-        return "Lugar: " + numero + (isOcupado() ? " - Ocupado: " + vehiculos : " - Libre");
+        return "Lugar: [Numero: " + numero + ", Vehiculo: " + (vehiculos != null ? vehiculos: "Libre") + "]";
     }
 }
