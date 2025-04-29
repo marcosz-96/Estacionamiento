@@ -22,15 +22,15 @@ class Cochera {
         System.out.println("No hay lugares disponibles.");
     }
 
-    public void retirarVehiculo(int patente) {
+    public void seRetiraVehiculo(String patente) {
         for (LugarEstacionamiento lugar : lugares) {
-            if (lugar.isOcupado() && lugar.getVehiculos()) {
-                Vehiculos vehiculoRetirado = lugar.retiraVehiculo();
+            if (lugar.isOcupado() && lugar.getVehiculos().getPatente().equals(patente)) {
+                Vehiculos vehiculoRetirado = lugar.seRetiraVehiculo();
                 System.out.println("Vehículo retirado: " + vehiculoRetirado);
                 return;
             }
         }
-        System.out.println("Vehículo no encontrado.");
+        System.out.println("Vehículo no registrado.");
     }
 
     public void mostrarEstado() {

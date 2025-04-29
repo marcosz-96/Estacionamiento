@@ -25,7 +25,7 @@ public class Main {
                     System.out.print("Ingrese el modelo: ");
                     String modelo = scanner.nextLine();
                     System.out.print("Ingrese la patente: ");
-                    int patente = scanner.nextInt();
+                    String patente = scanner.nextLine();
                     
                     // Ingresamos los datos del propietario del vehículo
                     System.out.print("Ingrese el nombre del propietario: ");
@@ -36,10 +36,10 @@ public class Main {
                     
                     // Cargamos los datos en la clase vehiculos con datos del propietario.
                     Vehiculos vehiculos = new Vehiculos(marca, modelo, patente, propietario);
-                    cochera.estacionandoVehiculo(vehiculos);
+                    cochera.estacionarVehiculo(vehiculos);
                     break;
                 case 2:
-                    cochera.mostrarEstadoEstacionamiento();
+                    cochera.mostrarEstado();
                     break;
                 case 3:
                     System.out.println("Ha salido del programa.");

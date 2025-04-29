@@ -23,7 +23,7 @@ public class LugarEstacionamiento {
         return vehiculos;
     }
     
-    public Vehiculos retiraVehiculo(){
+    public Vehiculos seRetiraVehiculo(){
         Vehiculos vehiculoRetirado = this.vehiculos;
         this.vehiculos.RegistrarSalida();
         this.vehiculos = null;
