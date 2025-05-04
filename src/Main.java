@@ -5,16 +5,19 @@ public class Main {
         
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("Ingrese la capacidad del estacionamiento: ");
+        System.out.println("<===Bienvenido al Programa Gestion de Vehiculos!===>");
+        System.out.print("Ingrese la capacidad de la cochera: ");
         int capacidad = scanner.nextInt();
+        scanner.nextLine(); // Se utiliza siempre despues de ingresar un NUMERO
         
         Cochera cochera = new Cochera(capacidad);
         
         while(true){
-            System.out.println("\n1: Ingresa vehiculo");
-            System.out.println("2: Ver disponibilidad del estacionamiento");
-            System.out.println("3: Salir");
-            System.out.println("Seleccione una opcion");
+            System.out.print("\n1: Ingresar vehiculo");
+            System.out.print("2: Retirar vehiculos");
+            System.out.print("3: Ver estado de la cochera");
+            System.out.print("4: Salir");
+            System.out.print("Seleccione una opcion: ");
             int opcion = scanner.nextInt();
             scanner.nextLine();
             
@@ -26,22 +29,22 @@ public class Main {
                     String modelo = scanner.nextLine();
                     System.out.print("Ingrese la patente: ");
                     String patente = scanner.nextLine();
-                    
-                    // Ingresamos los datos del propietario del vehículo
-                    System.out.print("Ingrese el nombre del propietario: ");
-                    String nombrePropietario = scanner.nextLine();
-                    System.out.print("Ingrese el número de contacto: ");
-                    int numeroContacto = scanner.nextInt();
-                    PropietarioVehiculo propietario = new PropietarioVehiculo(nombrePropietario, numeroContacto);
+                    System.out.print("Ingrese el numero de contacto");
+                    String numContacto = scanner.nextLine();
                     
                     // Cargamos los datos en la clase vehiculos con datos del propietario.
-                    Vehiculos vehiculos = new Vehiculos(marca, modelo, patente, propietario);
-                    cochera.estacionarVehiculo(vehiculos);
+                    Vehiculos vehiculos = new Vehiculos(marca, modelo, patente, numContacto);
+                    cochera.estacionaVehiculo(vehiculos);
                     break;
                 case 2:
-                    cochera.mostrarEstado();
+                    System.out.println("Ingrese la patente del vahiculo que se retira: ");
+                    String salePatente = scanner.nextLine();
+                    cochera.retiraVehiculo(salePatente);
                     break;
                 case 3:
+                    cochera.mostrarEstado();
+                    break;
+                case 4:
                     System.out.println("Ha salido del programa.");
                     scanner.close();
                     return;

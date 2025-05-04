@@ -1,31 +1,27 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Cochera {
-    private LugarEstacionamiento[] lugares;
+    private Lugar[] lugares;
 
     public Cochera(int capacidad) {
-        lugares = new LugarEstacionamiento[capacidad];
+        lugares = new Lugar[capacidad];
         for (int i = 0; i < capacidad; i++) {
-            lugares[i] = new LugarEstacionamiento(i + 1);
+            lugares[i] = new Lugar(i + 1);
         }
     }
 
-    public void estacionarVehiculo(Vehiculos vehiculos) {
-        for (LugarEstacionamiento lugar : lugares) {
+    public void estacionaVehiculo(Vehiculos vehiculos) {
+        for (Lugar lugar : lugares) {
             if (!lugar.isOcupado()) {
-                lugar.estacionar(vehiculos);
-                System.out.println("Vehículo estacionado en el lugar " + lugar.getNumero());
+                lugar.entraVehiculo(vehiculos);
                 return;
             }
         }
         System.out.println("No hay lugares disponibles.");
     }
 
-    public void seRetiraVehiculo(String patente) {
-        for (LugarEstacionamiento lugar : lugares) {
+    public void retiraVehiculo(String patente) {
+        for (Lugar lugar : lugares) {
             if (lugar.isOcupado() && lugar.getVehiculos().getPatente().equals(patente)) {
-                Vehiculos vehiculoRetirado = lugar.seRetiraVehiculo();
+                Vehiculos vehiculoRetirado = lugar.saleVehiculo();
                 System.out.println("Vehículo retirado: " + vehiculoRetirado);
                 return;
             }
@@ -34,7 +30,7 @@ class Cochera {
     }
 
     public void mostrarEstado() {
-        for (LugarEstacionamiento lugar : lugares) {
+        for (Lugar lugar : lugares) {
             System.out.println(lugar);
         }
     }
