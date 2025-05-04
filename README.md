@@ -25,9 +25,9 @@
   que sirve para gestionar la ocupación y el vehículo estacionado.
 
 **'Disponibilidad()':**
-- Esta Clase intermedia representa al etadop de ocupación de un lugar en la cochera.
-  Contiene un vahículo que ocupa un luagr y gestiona el estado de los lugares mostrando si están 
+- Esta Clase intermedia representa al estado de ocupación de un lugar específico en la cochera.
+  Contiene un vahículo que ocupa un lugar y gestiona el estado de los lugares mostrando si están 
   disponibles o no.
 
 **'Clase Program'**
-- Es la Clase principal que interactúa con el usuario permitiendo gestionar la cochera.
+- Es la Clase principal que interactúa con el usuario permitiéndole gestionar la cochera.
